@@ -1,1 +1,1 @@
-vim-tiny conntrack iotop tcpdump tcpflow dnsutils curl jq nmap iproute2 ethtool iftop traceroute net-tools
+bash bind-tools curl jq nmap iputils net-tools iperf tmux

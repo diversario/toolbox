@@ -1,16 +1,15 @@
-FROM debian:9.7-slim
+FROM alpine:3.9
 
-COPY packages /
-COPY 02nocache /etc/apt/apt.conf.d/
+ENV USER=root
 
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y $(cat /packages) && \
-    apt-get purge -y libx11.* libqt.* && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /var/cache/apt/archives && \
-    rm /*.deb && \
-    rm -rf /usr/share/vim/vim80/lang /usr/share/vim/vim80/tutor /usr/share/vim/vim80/spell /usr/share/vim/vim80/doc
+COPY packages-alpine.txt /packages.txt
 
-COPY .inputrc /root/
+RUN apk --no-cache add $(cat /packages.txt) && \
+    rm -rf /usr/share/vim/vim81/doc /usr/share/vim/vim81/spell /usr/share/vim/vim81/tutor
+
+COPY .inputrc /$USER/
+COPY .aliases.bash /$USER/
+RUN echo 'source ~/.aliases.bash' >> ~/.bashrc
+ADD https://raw.githubusercontent.com/diversario/tmux-config/master/.tmux.conf /$USER/
 
 ENTRYPOINT /bin/bash
