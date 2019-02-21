@@ -1,1 +1,0 @@
-bash bind-tools curl jq nmap iputils net-tools iperf tmux

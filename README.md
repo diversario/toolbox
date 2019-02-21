@@ -10,6 +10,8 @@ A relatively small image with commonly used debugging tools:
 * `net-tools`
 * `iperf`
 * `tmux`
+* `socat`
+* `pv`
 
 Default shell is `bash`, with extra aliases and `Ctrl/Option + arrow key` for jumping words. `tmux` is included with a custom config and `Ctrl-a` as a leader key.
 
