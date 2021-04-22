@@ -1,1 +1,1 @@
-bash bind-tools curl iperf iputils jq net-tools nmap pv socat tmux
+bash bind-tools curl iperf iputils jq net-tools nmap pv socat tmux aws-cli

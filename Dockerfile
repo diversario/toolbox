@@ -1,6 +1,12 @@
-FROM alpine:3.9
+FROM alpine:3
 
 ENV USER=root
+
+ENV KUBECTL_VERSION 1.18.16
+
+RUN wget -O /usr/bin/kubectl \
+    https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
+    && chmod +x /usr/bin/kubectl
 
 COPY packages.txt /packages.txt
 
